@@ -1,0 +1,8 @@
+^XTMP("K2VC","EXPORT","KRN",19,IEN,-1)="0^1"
+^XTMP("K2VC","EXPORT","KRN",19,IEN,0)="XPD VC BUILD^Export for version control comp from a local build^^R^^^^^^^^KIDS^y"
+^XTMP("K2VC","EXPORT","KRN",19,IEN,1,0)="^^3^3^3140901^"
+^XTMP("K2VC","EXPORT","KRN",19,IEN,1,1,0)="This option lets you export version controlled components from a KIDS "
+^XTMP("K2VC","EXPORT","KRN",19,IEN,1,2,0)="build on your system. Use this to version control builds from your system "
+^XTMP("K2VC","EXPORT","KRN",19,IEN,1,3,0)="every time you create a build."
+^XTMP("K2VC","EXPORT","KRN",19,IEN,25)="EXPKIDIN^XPDK2VC"
+^XTMP("K2VC","EXPORT","KRN",19,IEN,"U")="EXPORT FOR VERSION CONTROL COM"

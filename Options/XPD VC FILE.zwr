@@ -1,0 +1,8 @@
+^XTMP("K2VC","EXPORT","KRN",19,IEN,-1)="0^2"
+^XTMP("K2VC","EXPORT","KRN",19,IEN,0)="XPD VC FILE^Export for version control components from a file^^R^^^^^^^^^y"
+^XTMP("K2VC","EXPORT","KRN",19,IEN,1,0)="^^3^3^3140901^"
+^XTMP("K2VC","EXPORT","KRN",19,IEN,1,1,0)="This option loads a KIDs formatted HFS file into a temporary ^TMP "
+^XTMP("K2VC","EXPORT","KRN",19,IEN,1,2,0)="global, exports its contents in a version control format, and then "
+^XTMP("K2VC","EXPORT","KRN",19,IEN,1,3,0)="deletes the temporary ^TMP global. Use this to decompose an HFS KIDS file."
+^XTMP("K2VC","EXPORT","KRN",19,IEN,25)="EXPFILIN^XPDK2VC"
+^XTMP("K2VC","EXPORT","KRN",19,IEN,"U")="EXPORT FOR VERSION CONTROL COM"
