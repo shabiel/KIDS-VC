@@ -1,5 +1,5 @@
 XPDK2V1 ; VEN/SMH - Analyze KIDS file and extract information ;2014-03-18  11:57 AM
- ;;8.0;KERNEL;**1001**;Mar 28, 2014
+ ;;8.0;KERNEL;**11310**;Mar 28, 2014
  ; Inspired by the VISTA XML Parser, a State Machine
  ; Thank you Dr. Douglas Martin (SAIC/DKM)
  ;

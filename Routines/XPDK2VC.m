@@ -1,5 +1,5 @@
 XPDK2VC ; VEN/SMH - KIDS to Version Control Main Routine ; 1 Sep 2014
- ;;8.0;KERNEL;**1001**;Mar 28, 2014
+ ;;8.0;KERNEL;**11310**;Mar 28, 2014
  ;
  ; (C) Sam Habiel 2014, who needs more money than fame (but a rich wife will do!)
  ; License: Apache 2
