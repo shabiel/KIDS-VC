@@ -60,7 +60,7 @@ XPDK2V1 ; VEN/SMH - Analyze KIDS file and extract information ;2014-03-18  11:57
  ; <contents>
  ;$END KID ZZZ*1.0*1
  ;
-ANALYZE(RTN,MSGGREF,OPT) [Public] Proc ; Analyze a KIDS file in global MSGGREF. Return in RTN.
+ANALYZE(RTN,MSGGREF,OPT) ; [PUBLIC] Proc ; Analyze a KIDS file in global MSGGREF. Return in RTN.
  ; RTN - Global name - use with subscript indirection.
  ; MSGREG - Global passed by name containing message. Use Sub Ind to get data.
  ; OPT - Value - Options. Only supported one is "D" - debug. Prints out lines as they are read.

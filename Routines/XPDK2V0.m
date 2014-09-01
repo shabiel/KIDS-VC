@@ -9,8 +9,8 @@ RTN(FAIL,RTNGLO,ROOT) ; Routine Exporter
  ; RTNGLO - The KIDS global ending at "RTN". Use $NA to pass this.
  ; ROOT - File system root where we are gonna make the Routines directory
  ;
- N RTNDIR S RTNDIR=ROOT_"Routines"_$$D^A1AEOS()
- N % S %=$$MKDIR^A1AEOS(RTNDIR)
+ N RTNDIR S RTNDIR=ROOT_"Routines"_$$D^XPDOS()
+ N % S %=$$MKDIR^XPDOS(RTNDIR)
  I % S FAIL=1 QUIT
  ;
  D EN^DDIOL("Exporting these routines to "_RTNDIR)
@@ -49,8 +49,8 @@ FIA(FAIL,KIDGLO,ROOT) ; Print FIA, UP, ^DD, ^DIC, SEC, IX, KEY, KEYPTR for each 
  ;
  N POP
  ;
- N PATH S PATH=ROOT_"Files"_$$D^A1AEOS()
- S POP=$$MKDIR^A1AEOS(PATH)
+ N PATH S PATH=ROOT_"Files"_$$D^XPDOS()
+ S POP=$$MKDIR^XPDOS(PATH)
  I POP D EN^DDIOL($$RED("Couldn't create directory")) S FAIL=1 QUIT
  ;
  D EN^DDIOL("Exporting files DD and Data to Files/")
@@ -113,13 +113,13 @@ LOAD ; Restore patch components recursively
  ; TODO: Document and clean.
  N DIR,X,Y,DIROUT,DIRUT,DTOUT,DUOUT,DIROUT ; fur DIR
  S DIR(0)="F^2:1000",DIR("A")="Full path of patches to load, up to but not including patch names"
- S DIR("B")=$G(^DISV(DUZ,"A1AEK2V0")) ; Recurse Path
+ S DIR("B")=$G(^DISV(DUZ,"XPDK2V0")) ; Recurse Path
  I DIR("B")="" K DIR("B")
  D ^DIR
  QUIT:Y="^"
  N ROOT S ROOT=Y ; root patch
- S ^DISV(DUZ,"A1AEK2V0")=ROOT
- N D S D=$$D^A1AEOS()
+ S ^DISV(DUZ,"XPDK2V0")=ROOT
+ N D S D=$$D^XPDOS()
  I $E(ROOT,$L(ROOT))=D S $E(ROOT,$L(ROOT))=""
  N FILES ; final array to keep files
  N LVL S LVL=0 ; tree level for debugging
@@ -166,7 +166,7 @@ PROCESS(FILES) ; Process each file to load into ^XTMP or so...
  QUIT
  ;
 ZWRITE(NAME,QS,QSREP) ; Replacement for ZWRITE ; Public Proc
-ZWRITE0 ; Goto Entry point for A1AEK2VC (only permitted user)
+ZWRITE0 ; Goto Entry point for XPDK2VC (only permitted user)
  ; Pass NAME by name as a closed reference. lvn and gvn are both supported.
  ; QS = Query Subscript to replace. Optional.
  ; QSREP = Query Subscrpt replacement. Optional, but must be passed if QS is.
