@@ -235,15 +235,14 @@ File system view using the Windows tree command (I didn't know there was one!!):
 	Wrote ORD.zwr for OPTION
 	Exported PXTT EDIT IMMUNIZATIONS.zwr in OPTION
 
-File system view using the Windows tree command (I didn't know there was one!!):
+File system view using the Windows tree command: 
 
-	C:\HFS\BI_8.5_8>tree /f
+	C:\HFS\PX_1.0_201>tree /f
 	Folder PATH listing for volume Windows7_OS
 	Volume serial number is 3A9E-458F
 	C:.
 	+---KIDComponents
 	    ¦   Build.zwr
-	    ¦   EnvironmentCheck.zwr
 	    ¦   InstallQuestions.zwr
 	    ¦   KernelFMVersion.zwr
 	    ¦   Package.zwr
@@ -251,80 +250,35 @@ File system view using the Windows tree command (I didn't know there was one!!):
 	    ¦   RequiredBuild.zwr
 	    ¦
 	    +---Files
-	    ¦       9002084.33+BI TABLE ERROR CODE.Data.zwr
-	    ¦       9002084.33+BI TABLE ERROR CODE.DD.zwr
-	    ¦       9002084.81+BI TABLE CONTRA REASON.Data.zwr
-	    ¦       9002084.81+BI TABLE CONTRA REASON.DD.zwr
-	    ¦       9002084.91+BI TABLE DATA ELEMENT.Data.zwr
-	    ¦       9002084.91+BI TABLE DATA ELEMENT.DD.zwr
+	    ¦       9000010.11+V IMMUNIZATION.DD.zwr
+	    ¦       920+VACCINE INFORMATION STATEMENT.Data.zwr
+	    ¦       920+VACCINE INFORMATION STATEMENT.DD.zwr
+	    ¦       920.1+IMMUNIZATION INFO SOURCE.Data.zwr
+	    ¦       920.1+IMMUNIZATION INFO SOURCE.DD.zwr
+	    ¦       920.2+IMM ADMINISTRATION ROUTE.Data.zwr
+	    ¦       920.2+IMM ADMINISTRATION ROUTE.DD.zwr
+	    ¦       920.3+IMM ADMINISTRATION SITE -BODY-.Data.zwr
+	    ¦       920.3+IMM ADMINISTRATION SITE -BODY-.DD.zwr
+	    ¦       9999999.04+IMM MANUFACTURER.Data.zwr
+	    ¦       9999999.04+IMM MANUFACTURER.DD.zwr
+	    ¦       9999999.14+IMMUNIZATION.DD.zwr
+	    ¦       9999999.41+IMMUNIZATION LOT.DD.zwr
 	    ¦
-	    +---FORM
-	    ¦       BI FORM-CASE DATA EDIT.zwr
+	    +---INPUT TEMPLATE
 	    ¦       ORD.zwr
+	    ¦       PXV IMM EDIT WITH CVX.zwr
 	    ¦
-	    +---PROTOCOL
-	    ¦       BI BLANK.zwr
-	    ¦       BI CONTRAINDICATIONS.zwr
-	    ¦       BI HEALTH SUMMARY.zwr
-	    ¦       BI IMMUNIZATION VISIT ADD.zwr
-	    ¦       BI IMMUNIZATION VISIT DELETE.zwr
-	    ¦       BI IMMUNIZATION VISIT EDIT.zwr
-	    ¦       BI LETTER PRINT INDIVIDUAL.zwr
-	    ¦       BI MENU PATIENT VIEW ONLY.zwr
-	    ¦       BI MENU PATIENT VIEW.zwr
-	    ¦       BI OFFICIAL IMM REC PRINT.zwr
-	    ¦       BI PATIENT CASE DATA EDIT.zwr
-	    ¦       BI PATIENT PROFILE VIEW.zwr
-	    ¦       BI SKIN TEST VISIT ADD.zwr
+	    +---OPTION
 	    ¦       ORD.zwr
+	    ¦       PXTT EDIT IMMUNIZATIONS.zwr
 	    ¦
 	    +---Routines
-		    BIENVCHK.header
-		    BIENVCHK.m
-		    BIEXPRT3.header
-		    BIEXPRT3.m
-		    BIEXPRT4.header
-		    BIEXPRT4.m
-		    BIEXPRT6.header
-		    BIEXPRT6.m
-		    BILOGO.header
-		    BILOGO.m
-		    BINTEG.header
-		    BINTEG.m
-		    BIPATUP.header
-		    BIPATUP.m
-		    BIPATUP1.header
-		    BIPATUP1.m
-		    BIPATUP2.header
-		    BIPATUP2.m
-		    BIPATVW1.header
-		    BIPATVW1.m
-		    BIPATVW3.header
-		    BIPATVW3.m
-		    BIPOST.header
-		    BIPOST.m
-		    BISITE1.header
-		    BISITE1.m
-		    BISITE2.header
-		    BISITE2.m
-		    BISITE3.header
-		    BISITE3.m
-		    BISITE4.header
-		    BISITE4.m
-		    BITN.header
-		    BITN.m
-		    BITN2.header
-		    BITN2.m
-		    BIUTL11.header
-		    BIUTL11.m
-		    BIUTL2.header
-		    BIUTL2.m
-		    BIUTL5.header
-		    BIUTL5.m
-		    BIUTL8.header
-		    BIUTL8.m
-		    BIXTCH.header
-		    BIXTCH.m
+		    PXVP201.header
+		    PXVP201.m
+		    PXVPST01.header
+		    PXVPST01.m
+		    PXVUTIL.header
+		    PXVUTIL.m
 
 ## Overview of the version control format and normalization of components
 The entire objective of version control is to track changes and give the ability to merge changes together. It's secondarily used for release management, but I don't think we will do that with VISTA. To not introduce extranenous changes that KIDS introduces when exporting a build, several replacements had to be done which are completely non-destructive.
@@ -358,7 +312,7 @@ Routines sent via KIDs get a build number appended on the second line. That is a
 
 ## Use Cases
 ### A bird's eye view of what's in a build
-While the option `[XPD PRINT BUILD]` provides a good view of the components, it doesn't display transported data and doesn't display sub-components that KIDS sneaks in, like Blocks for Parameter values at the package level.
+While the option `[XPD PRINT BUILD]` provides a good view of the components, it doesn't display transported data and doesn't display sub-components that KIDS sneaks in, like Blocks or Parameter values at the package level.
 ### Versioning of builds
 Mulitple exports overwrite the previous export. If you initialize a version control system in the main directory, you can use your version control system's diff tools to see how the KID build changed.
 
