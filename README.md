@@ -163,36 +163,36 @@ File system view using the Windows tree command (I didn't know there was one!!):
 	Volume serial number is 3A9E-458F
 	C:.
 	+---KIDComponents
-	    ¦   Build.zwr
-	    ¦   InstallQuestions.zwr
-	    ¦   KernelFMVersion.zwr
-	    ¦   Package.zwr
-	    ¦   PostInstall.zwr
-	    ¦   RequiredBuild.zwr
-	    ¦
+	    Â¦   Build.zwr
+	    Â¦   InstallQuestions.zwr
+	    Â¦   KernelFMVersion.zwr
+	    Â¦   Package.zwr
+	    Â¦   PostInstall.zwr
+	    Â¦   RequiredBuild.zwr
+	    Â¦
 	    +---Files
-	    ¦       9000010.11+V IMMUNIZATION.DD.zwr
-	    ¦       920+VACCINE INFORMATION STATEMENT.Data.zwr
-	    ¦       920+VACCINE INFORMATION STATEMENT.DD.zwr
-	    ¦       920.1+IMMUNIZATION INFO SOURCE.Data.zwr
-	    ¦       920.1+IMMUNIZATION INFO SOURCE.DD.zwr
-	    ¦       920.2+IMM ADMINISTRATION ROUTE.Data.zwr
-	    ¦       920.2+IMM ADMINISTRATION ROUTE.DD.zwr
-	    ¦       920.3+IMM ADMINISTRATION SITE -BODY-.Data.zwr
-	    ¦       920.3+IMM ADMINISTRATION SITE -BODY-.DD.zwr
-	    ¦       9999999.04+IMM MANUFACTURER.Data.zwr
-	    ¦       9999999.04+IMM MANUFACTURER.DD.zwr
-	    ¦       9999999.14+IMMUNIZATION.DD.zwr
-	    ¦       9999999.41+IMMUNIZATION LOT.DD.zwr
-	    ¦
+	    Â¦       9000010.11+V IMMUNIZATION.DD.zwr
+	    Â¦       920+VACCINE INFORMATION STATEMENT.Data.zwr
+	    Â¦       920+VACCINE INFORMATION STATEMENT.DD.zwr
+	    Â¦       920.1+IMMUNIZATION INFO SOURCE.Data.zwr
+	    Â¦       920.1+IMMUNIZATION INFO SOURCE.DD.zwr
+	    Â¦       920.2+IMM ADMINISTRATION ROUTE.Data.zwr
+	    Â¦       920.2+IMM ADMINISTRATION ROUTE.DD.zwr
+	    Â¦       920.3+IMM ADMINISTRATION SITE -BODY-.Data.zwr
+	    Â¦       920.3+IMM ADMINISTRATION SITE -BODY-.DD.zwr
+	    Â¦       9999999.04+IMM MANUFACTURER.Data.zwr
+	    Â¦       9999999.04+IMM MANUFACTURER.DD.zwr
+	    Â¦       9999999.14+IMMUNIZATION.DD.zwr
+	    Â¦       9999999.41+IMMUNIZATION LOT.DD.zwr
+	    Â¦
 	    +---INPUT TEMPLATE
-	    ¦       ORD.zwr
-	    ¦       PXV IMM EDIT WITH CVX.zwr
-	    ¦
+	    Â¦       ORD.zwr
+	    Â¦       PXV IMM EDIT WITH CVX.zwr
+	    Â¦
 	    +---OPTION
-	    ¦       ORD.zwr
-	    ¦       PXTT EDIT IMMUNIZATIONS.zwr
-	    ¦
+	    Â¦       ORD.zwr
+	    Â¦       PXTT EDIT IMMUNIZATIONS.zwr
+	    Â¦
 	    +---Routines
 		    PXVP201.header
 		    PXVP201.m
@@ -242,36 +242,36 @@ File system view using the Windows tree command:
 	Volume serial number is 3A9E-458F
 	C:.
 	+---KIDComponents
-	    ¦   Build.zwr
-	    ¦   InstallQuestions.zwr
-	    ¦   KernelFMVersion.zwr
-	    ¦   Package.zwr
-	    ¦   PostInstall.zwr
-	    ¦   RequiredBuild.zwr
-	    ¦
+	    Â¦   Build.zwr
+	    Â¦   InstallQuestions.zwr
+	    Â¦   KernelFMVersion.zwr
+	    Â¦   Package.zwr
+	    Â¦   PostInstall.zwr
+	    Â¦   RequiredBuild.zwr
+	    Â¦
 	    +---Files
-	    ¦       9000010.11+V IMMUNIZATION.DD.zwr
-	    ¦       920+VACCINE INFORMATION STATEMENT.Data.zwr
-	    ¦       920+VACCINE INFORMATION STATEMENT.DD.zwr
-	    ¦       920.1+IMMUNIZATION INFO SOURCE.Data.zwr
-	    ¦       920.1+IMMUNIZATION INFO SOURCE.DD.zwr
-	    ¦       920.2+IMM ADMINISTRATION ROUTE.Data.zwr
-	    ¦       920.2+IMM ADMINISTRATION ROUTE.DD.zwr
-	    ¦       920.3+IMM ADMINISTRATION SITE -BODY-.Data.zwr
-	    ¦       920.3+IMM ADMINISTRATION SITE -BODY-.DD.zwr
-	    ¦       9999999.04+IMM MANUFACTURER.Data.zwr
-	    ¦       9999999.04+IMM MANUFACTURER.DD.zwr
-	    ¦       9999999.14+IMMUNIZATION.DD.zwr
-	    ¦       9999999.41+IMMUNIZATION LOT.DD.zwr
-	    ¦
+	    Â¦       9000010.11+V IMMUNIZATION.DD.zwr
+	    Â¦       920+VACCINE INFORMATION STATEMENT.Data.zwr
+	    Â¦       920+VACCINE INFORMATION STATEMENT.DD.zwr
+	    Â¦       920.1+IMMUNIZATION INFO SOURCE.Data.zwr
+	    Â¦       920.1+IMMUNIZATION INFO SOURCE.DD.zwr
+	    Â¦       920.2+IMM ADMINISTRATION ROUTE.Data.zwr
+	    Â¦       920.2+IMM ADMINISTRATION ROUTE.DD.zwr
+	    Â¦       920.3+IMM ADMINISTRATION SITE -BODY-.Data.zwr
+	    Â¦       920.3+IMM ADMINISTRATION SITE -BODY-.DD.zwr
+	    Â¦       9999999.04+IMM MANUFACTURER.Data.zwr
+	    Â¦       9999999.04+IMM MANUFACTURER.DD.zwr
+	    Â¦       9999999.14+IMMUNIZATION.DD.zwr
+	    Â¦       9999999.41+IMMUNIZATION LOT.DD.zwr
+	    Â¦
 	    +---INPUT TEMPLATE
-	    ¦       ORD.zwr
-	    ¦       PXV IMM EDIT WITH CVX.zwr
-	    ¦
+	    Â¦       ORD.zwr
+	    Â¦       PXV IMM EDIT WITH CVX.zwr
+	    Â¦
 	    +---OPTION
-	    ¦       ORD.zwr
-	    ¦       PXTT EDIT IMMUNIZATIONS.zwr
-	    ¦
+	    Â¦       ORD.zwr
+	    Â¦       PXTT EDIT IMMUNIZATIONS.zwr
+	    Â¦
 	    +---Routines
 		    PXVP201.header
 		    PXVP201.m
@@ -569,6 +569,13 @@ On Cache/Windows, probably as a side effect of `$ZSEARCH`, a handle is kept on t
 	CRIBERS
 	   XPD VC BUILD                                   SEND TO SITE
 	   XPD VC FILE                                    SEND TO SITE
+
+## Random tid-bits
+ * Import and export of routines modified on the OS are done by GT's % routine.
+ * Loading DD's from the file system can be done as follows (52 = file; 52.1 = file or subfile)
+
+	M ^DD(52.1)=^XTMP("K2VC","EXPORT","^DD",52,52.1)
+	S DA(1)=52.1,DIK="^DD(52.1," D IXALL^DIK
 
 ## Acknowledgements
 Portions of the ZWRITE PEP were written by Maury Pepper. The actual ZWRITE implementation is my code.
