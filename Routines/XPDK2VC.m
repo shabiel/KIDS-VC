@@ -302,7 +302,8 @@ EXPFILIN ; [PUBLIC] Procedure; Interactive export a build based on a file... can
  . . S L2=$O(@S@(L1))    ; second line
  . . N L2TXT S L2TXT=^(L2)                   ; its text
  . . S @("^XTMP(""K2VC"",""EXPORT"","_L1TXT)=L2TXT      ; Set our data into our global
- . . S SVLN=L2                                 ; move data pointer to last accessed one
+ . . I $E(@S@(L2+1))'="""",$E(@S@(L2+1))'="$" S @("^XTMP(""K2VC"",""EXPORT"","_L1TXT)=@S@(L2+1) S L2=L2+1  ;temp 
+ . . S SVLN=L2                                 ; move data pointer to last accessed one 
  . ;
  . N XPDFAIL S XPDFAIL=0
  . N SN S SN=$NA(^XTMP("K2VC","EXPORT")) ; Short name... I am tired of typing.
