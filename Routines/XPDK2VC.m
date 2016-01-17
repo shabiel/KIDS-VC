@@ -130,6 +130,10 @@ EXPORT(XPDFAIL,SN,ROOT) ; Export KIDS patch to the File system
  ; Make sure that the XTMP global is now empty. If there is anything there, we have a problem.
  D ASSERT('$D(@SN))
  ;
+ ; Cache locks the directory with a windows handle which makes it undeletable.
+ ; We need to clear $ZSEARCH so that it will remove that windows handle
+ ; Use Process Explorer from SysInternals to see this.
+ D CLRCX^XPDOS
  QUIT
  ;
  ;
@@ -177,7 +181,7 @@ KRN(FAIL,KIDGLO,ROOT) ; Print OPT and KRN sections
  . N IENQL S IENQL=$QL($NA(@KIDGLO@("KRN",FNUM,0)))                        ; Where is the IEN sub?
  . N IEN F IEN=0:0 S IEN=$O(@KIDGLO@("KRN",FNUM,IEN)) Q:'IEN  D  Q:$G(POP)  ; For each Kernel component IEN
  . . N ENTRYNAME S ENTRYNAME=$P(@KIDGLO@("KRN",FNUM,IEN,0),U)              ; .01 for the component
- . . S ENTRYNAME=$TR(ENTRYNAME,"\/!@#$%^&*()?","-------------")              ; Replace punc with dashes
+ . . S ENTRYNAME=$TR(ENTRYNAME,"\/!@#$%^&*()?<>","---------------")              ; Replace punc with dashes
  . . D OPEN^%ZISH("ENT",PATH,ENTRYNAME_".zwr","W")                         ; Open file
  . . I POP S FAIL=1 QUIT
  . . U IO
@@ -263,12 +267,23 @@ EXPFILIN ; [PUBLIC] Procedure; Interactive export a build based on a file... can
  S DIR(0)="F^1:1000" S DIR("A")="Enter a file to import then break down" D ^DIR
  ;
  I $D(DIRUT)!($D(DTOUT)) QUIT
+ ;
+ G FY
+ ;
+F(Y) ; [Public] ; Non interactive version of exporting a file
+FY ; ZEXCEPT: Y
+ N DIQUIET D DT^DICRW K DIQUIET
+ ;
  I Y="" QUIT
+ ;
+ ; Remove quotes. Single or double.
+ N Q F Q="""","'" I $E(Y)=Q,$E(Y,$L(Y))=Q S Y=$E(Y,2,$L(Y)-1)
  ;
  N D S D=$$D^XPDOS()
  N DIR,FN
  I Y[D S DIR=$P(Y,D,1,$L(Y,D)-1),FN=$P(Y,D,$L(Y,D))
  E  S DIR=$$DEFDIR^%ZISH(),FN=Y
+ ;
  ;
  K ^TMP("XPDK2VC-OUT",$J),^TMP("XPDK2VC-IN",$J)
  ;
@@ -348,12 +363,13 @@ EXPKID96(XPDFAIL,XPDA) ; [PUBLIC] Procedure; Export a KIDS file using Build file
  QUIT
  ;
 ZWRITE(NAME,QS,QSREP) ; Replacement for ZWRITE ; Public Proc
+ ; ZEXCEPT: XPDK2V0,ZWRITE0
  GOTO ZWRITE0^XPDK2V0 ; Moved to extension routine for size
  ;
 RED(X) ; Convenience method for Sam to see things on the screen.
  Q $C(27)_"[41;1m"_X_$C(27)_"[0m"
  ;
-TEST D EN^XTMUNIT($T(+0),1,1) QUIT
+TEST D EN^%ut($T(+0),1,1) QUIT
  ;
 T4 ; @TEST Export components from KIDS itself - TIU
  ; Loop through all the TIU patches
@@ -362,7 +378,7 @@ T4 ; @TEST Export components from KIDS itself - TIU
  F  S XPDI=$O(^XPD(9.6,"B",XPDI)) Q:($P(XPDI,"*")'="TIU")  D
  . N XPDA S XPDA=$O(^(XPDI,""))
  . D EXPKID96(.XPDFAIL,XPDA)
- . I XPDFAIL D FAIL^XTMUNIT("Last export didn't work")  
+ . I XPDFAIL D FAIL^%ut("Last export didn't work")  
  QUIT 
  ;
 T5 ; @TEST Export components from KIDS itself - MAG
@@ -372,17 +388,11 @@ T5 ; @TEST Export components from KIDS itself - MAG
  F  S XPDI=$O(^XPD(9.6,"B",XPDI)) Q:($P(XPDI,"*")'="MAG")  D
  . N XPDA S XPDA=$O(^(XPDI,""))
  . D EXPKID96(.XPDFAIL,XPDA)
- . I XPDFAIL D FAIL^XTMUNIT("Last export didn't work")  
+ . I XPDFAIL D FAIL^%ut("Last export didn't work")  
  QUIT 
  ;
 ASSERT(X,Y) ; Internal assertion function
- ; N MUNIT S MUNIT=$$INMUNIT()
- ; I MUNIT D CHKTF^XTMUNIT(X,$G(Y)) 
+ ; ZEXCEPT: %ut
+ I $D(%ut) D CHKTF^%ut(X,$G(Y)) 
  E  I 'X S $EC=",U-ASSERTION-FAILED,"
  QUIT
- ;
-INMUNIT() ; Am I being invoked from M-Unit?
- N MUNIT S MUNIT=0
- N I F I=1:1:$ST I $ST(I,"PLACE")["XTMUNIT" S MUNIT=1
- Q MUNIT
- ;
