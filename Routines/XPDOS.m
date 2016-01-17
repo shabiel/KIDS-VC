@@ -93,3 +93,8 @@ RDPIPE(RTN,CMD) ; [PUBLIC] $$ - Execute a read only (non-interactive) command as
  . C CMD
  S $EC=",U-M-VM-NOT-SUPPORTED,"
  QUIT  ; Decorative quit
+ ;
+CLRCX ; [Public] $$ - Clear $ZSEARCH for Cache
+ I +$SY=0 N % F  S %=$ZSEARCH("") Q:%=""
+ QUIT
+ ;
