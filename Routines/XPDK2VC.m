@@ -1,4 +1,4 @@
-XPDK2VC ; VEN/SMH - KIDS to Version Control Main Routine ; 1 Sep 2014
+XPDK2VC ; VEN/SMH - KIDS to Version Control Main Routine ; 6/9/17 4:12pm
  ;;8.0;KERNEL;**11310**;Mar 28, 2014
  ;
  ; (C) Sam Habiel 2014, who needs more money than fame (but a rich wife will do!)
@@ -49,7 +49,7 @@ EXPORT(XPDFAIL,SN,ROOT) ; Export KIDS patch to the File system
  ;
  ; Say that we are exporting
  N MSG S MSG(1)="Exporting Patch "_PD
- S MSG(1,"F")="!!!!!"
+ S MSG(1,"F")="!!"
  S MSG(2)="Exporting at "_ROOT
  S MSG(2,"F")="!"
  D EN^DDIOL(.MSG)
@@ -59,8 +59,15 @@ EXPORT(XPDFAIL,SN,ROOT) ; Export KIDS patch to the File system
  ; BLD - Build
  D GENOUT(.XPDFAIL,$NA(@SN@("BLD")),ROOT,"Build.zwr",4,"IEN") ; Process BUILD Section
  I XPDFAIL D EN^DDIOL($$RED("Couldn't export BLD")) QUIT
- K @SN@("BLD")
  D ASSERT('XPDFAIL)
+ ;
+ ; Don't kill "BLD" here. Kill after GLO section b/c we may need it.
+ ;
+ ; Stanza to branch out to a separate program if we are exporting a globals build
+ I $D(@SN@("BLD",BLDIEN,"GLO")) D GLOEXP^XPDK2VG(.XPDFAIL,SN,ROOT,BLDIEN) QUIT
+ I XPDFAIL D EN^DDIOL($$RED("Couldn't export Globals")) QUIT
+ D ASSERT('XPDFAIL)
+ K @SN@("BLD") ; Now bye bye
  ;
  ; FIA, ^DD, ^DIC, SEC, DATA, FR* nodes
  D FIA^XPDK2V0(.XPDFAIL,SN,ROOT)                  ; All file components (DD + data)... Killing done internally.
