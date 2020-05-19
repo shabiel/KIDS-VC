@@ -1,4 +1,4 @@
-XPDK2VC ; VEN/SMH - KIDS to Version Control Main Routine ; 6/9/17 4:12pm
+XPDK2VC ; VEN/SMH - KIDS to Version Control Main Routine ;نيسان 27, 2020@09:36
  ;;8.0;KERNEL;**11310**;Mar 28, 2014
  ;
  ; (C) Sam Habiel 2014, who needs more money than fame (but a rich wife will do!)
@@ -278,6 +278,7 @@ EXPFILIN ; [PUBLIC] Procedure; Interactive export a build based on a file... can
  G FY
  ;
 F(Y) ; [Public] ; Non interactive version of exporting a file
+ I ^%ZOSF("OS")["GT.M",$ZCMD'="" S Y=$ZCMD
 FY ; ZEXCEPT: Y
  N DIQUIET D DT^DICRW K DIQUIET
  ;
